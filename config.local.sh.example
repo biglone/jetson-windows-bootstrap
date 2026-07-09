@@ -1,0 +1,8 @@
+FRP_SERVER_ADDR="your.frp.server"
+FRP_SERVER_PORT=7000
+FRP_TOKEN="replace-with-your-frp-token"
+FRP_VISITOR_NAME="company_ssh"
+FRP_SECRET_KEY="replace-with-your-frp-secret"
+JETSON_USER="Biglone"
+BIND_ADDR="127.0.0.1"
+BIND_PORT=6000
