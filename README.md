@@ -137,3 +137,30 @@ ssh -vvv jetson
 lsof -nP -iTCP:6000 -sTCP:LISTEN
 ssh -vvv jetson
 ```
+
+## 发布与打包
+
+本地打包：
+
+```bash
+chmod +x ./scripts/package-release.sh
+./scripts/package-release.sh v0.1.0
+```
+
+输出文件在：
+
+```text
+dist/jetson-bootstrap-toolkit-v0.1.0.zip
+```
+
+GitHub Actions：
+
+- 推送 `v*` tag 时，会自动创建 GitHub Release 并上传 zip
+- 手动触发 `release` workflow 时，会生成一个可下载的 workflow artifact
+
+发布示例：
+
+```bash
+git tag v0.1.0
+git push origin v0.1.0
+```
