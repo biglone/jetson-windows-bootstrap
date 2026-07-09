@@ -1,0 +1,8 @@
+$FrpServerAddr = "your.frp.server"
+$FrpServerPort = 7000
+$FrpToken = "replace-with-your-frp-token"
+$FrpVisitorName = "company_ssh"
+$FrpSecretKey = "replace-with-your-frp-secret"
+$JetsonUser = "Biglone"
+$BindAddr = "127.0.0.1"
+$BindPort = 6000
