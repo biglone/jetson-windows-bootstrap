@@ -55,7 +55,7 @@ cp ./config.local.sh.example ./config.local.sh
 
 ```powershell
 Set-ExecutionPolicy -Scope Process Bypass
-.\bootstrap-jetson.ps1
+.\bootstrap.ps1
 ```
 
 默认写入：
@@ -71,8 +71,8 @@ Set-ExecutionPolicy -Scope Process Bypass
 在 macOS 终端中执行：
 
 ```bash
-chmod +x ./bootstrap-jetson-macos.sh
-./bootstrap-jetson-macos.sh
+chmod +x ./bootstrap.sh
+./bootstrap.sh
 ```
 
 默认写入：
@@ -88,32 +88,43 @@ chmod +x ./bootstrap-jetson-macos.sh
 指定 FRP 版本：
 
 ```powershell
-.\bootstrap-jetson.ps1 -FrpVersion 0.69.1
+.\bootstrap.ps1 -FrpVersion 0.69.1
 ```
 
 ```bash
-FRP_VERSION=0.69.1 ./bootstrap-jetson-macos.sh
+FRP_VERSION=0.69.1 ./bootstrap.sh
 ```
 
 只写配置，不重新下载：
 
 ```powershell
-.\bootstrap-jetson.ps1 -SkipDownload
+.\bootstrap.ps1 -SkipDownload
 ```
 
 ```bash
-SKIP_DOWNLOAD=1 ./bootstrap-jetson-macos.sh
+SKIP_DOWNLOAD=1 ./bootstrap.sh
 ```
 
 只做本地配置，不立刻启动：
 
 ```powershell
-.\bootstrap-jetson.ps1 -SkipLaunch
+.\bootstrap.ps1 -SkipLaunch
 ```
 
 ```bash
-SKIP_LAUNCH=1 ./bootstrap-jetson-macos.sh
+SKIP_LAUNCH=1 ./bootstrap.sh
 ```
+
+## 快速追加公钥
+
+如果你已经在一台可信机器上可以 `ssh jetson`，可以用仓库里的辅助脚本把新设备公钥追加到 Jetson：
+
+```bash
+chmod +x ./append-jetson-authorized-key.sh
+./append-jetson-authorized-key.sh ~/.ssh/id_ed25519_jetson.pub jetson
+```
+
+默认第二个参数就是 `jetson`，不传也可以。
 
 ## 完成后验证
 
